@@ -84,7 +84,7 @@ const getDefaultPaymentMethodOptions = (
 	};
 };
 
-const SavedPaymentMethodOptions = ( { onSelect } ) => {
+const SavedPaymentMethodOptions = () => {
 	const { isEditor } = useEditorContext();
 	const {
 		setPaymentStatus,
@@ -155,9 +155,8 @@ const SavedPaymentMethodOptions = ( { onSelect } ) => {
 				setPaymentStatus().started();
 			}
 			setSelectedToken( token );
-			onSelect( token );
 		},
-		[ setSelectedToken, setPaymentStatus, onSelect ]
+		[ setSelectedToken, setPaymentStatus ]
 	);
 	useEffect( () => {
 		if ( selectedToken && currentOptions.current.length > 0 ) {
